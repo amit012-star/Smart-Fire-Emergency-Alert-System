@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Alert History</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>📋 Fire Alert History</h2>
+
+    <a href="/dashboard">
+        Dashboard
+    </a>
+
+</div>
+
+
+<div class="container">
+
+    <h1>All Fire Alerts</h1>
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+            <th>Location</th>
+            <th>Description</th>
+            <th>Time</th>
+            <th>Map</th>
+            <th>Status</th>
+            <th>Call</th>
+
+        </tr>
+
+
+        {% for alert in alerts %}
+
+        <tr>
+
+            <td>{{ alert["id"] }}</td>
+
+            <td>{{ alert["location"] }}</td>
+
+            <td>{{ alert["description"] }}</td>
+
+            <td>{{ alert["alert_time"] }}</td>
+
+            <td>
+
+                {% if alert["map_link"] %}
+
+                <a
+                    href="{{ alert['map_link'] }}"
+                    target="_blank"
+                >
+                    📍 View Map
+                </a>
+
+                {% else %}
+
+                Not Provided
+
+                {% endif %}
+
+            </td>
+
+            <td>
+
+                {% if alert["status"] == "Active" %}
+
+                <span class="active-status">
+                    🔴 Active
+                </span>
+
+                {% else %}
+
+                <span class="resolved-status">
+                    ✅ Resolved
+                </span>
+
+                {% endif %}
+
+            </td>
+
+            <td>
+                {{ alert["call_status"] }}
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
