@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>🔥 Smart Fire Emergency System</h2>
+
+    <a href="/logout">Logout</a>
+
+</div>
+
+
+<div class="container">
+
+    <h1>Dashboard</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Total Alerts</h3>
+            <p>{{ total_alerts }}</p>
+        </div>
+
+        <div class="card active">
+            <h3>Active Alerts</h3>
+            <p>{{ active_alerts }}</p>
+        </div>
+
+        <div class="card resolved">
+            <h3>Resolved</h3>
+            <p>{{ resolved_alerts }}</p>
+        </div>
+
+        <div class="card">
+            <h3>Emergency Contacts</h3>
+            <p>{{ contacts }}</p>
+        </div>
+
+    </div>
+
+
+    <div class="menu">
+
+        <a href="/alert">
+            🚨 Report Fire Emergency
+        </a>
+
+        <a href="/contacts">
+            📞 Emergency Contact
+        </a>
+
+        <a href="/history">
+            📋 Alert History
+        </a>
+
+    </div>
+
+
+    <h2>Recent Alerts</h2>
+
+    <table>
+
+        <tr>
+            <th>ID</th>
+            <th>Location</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th>Call</th>
+            <th>Action</th>
+        </tr>
+
+
+        {% for alert in alerts %}
+
+        <tr>
+
+            <td>{{ alert["id"] }}</td>
+
+            <td>{{ alert["location"] }}</td>
+
+            <td>{{ alert["alert_time"] }}</td>
+
+            <td>
+
+                {% if alert["status"] == "Active" %}
+
+                <span class="active-status">
+                    🔴 Active
+                </span>
+
+                {% else %}
+
+                <span class="resolved-status">
+                    ✅ Resolved
+                </span>
+
+                {% endif %}
+
+            </td>
+
+            <td>
+                {{ alert["call_status"] }}
+            </td>
+
+            <td>
+
+                {% if alert["status"] == "Active" %}
+
+                <a
+                    class="resolve"
+                    href="/resolve/{{ alert['id'] }}"
+                >
+                    Mark Resolved
+                </a>
+
+                {% else %}
+
+                Completed
+
+                {% endif %}
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
