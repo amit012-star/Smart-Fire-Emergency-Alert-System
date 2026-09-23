@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Call Admin</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="call-page">
+
+    <div class="call-box">
+
+        <h1>🚨 FIRE EMERGENCY</h1>
+
+        <h2>Alert Created Successfully</h2>
+
+        <p>
+            Location:
+            <strong>{{ location }}</strong>
+        </p>
+
+        <p>
+            Admin Mobile:
+            <strong>{{ phone }}</strong>
+        </p>
+
+        <p>
+            Please call the admin immediately.
+        </p>
+
+        <a
+            class="call-button"
+            href="tel:{{ phone }}"
+        >
+            📞 Call Admin
+        </a>
+
+        <br><br>
+
+        <a
+            class="back-button"
+            href="/dashboard"
+        >
+            Back to Dashboard
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
