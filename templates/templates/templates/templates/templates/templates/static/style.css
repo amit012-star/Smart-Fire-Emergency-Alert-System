@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #222;
+}
+
+
+/* NAVBAR */
+
+.navbar {
+    background: #b30000;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* LOGIN */
+
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f2f2f2;
+}
+
+.login-box {
+    width: 350px;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.login-box input,
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 11px 20px;
+    border: none;
+    border-radius: 5px;
+    background: #b30000;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.error {
+    margin-top: 15px;
+    color: red;
+}
+
+
+/* CONTAINER */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+
+/* CARDS */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.card p {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.card.active {
+    border-left: 6px solid red;
+}
+
+.card.resolved {
+    border-left: 6px solid green;
+}
+
+
+/* MENU */
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.menu a {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+
+/* TABLE */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #333;
+    color: white;
+}
+
+
+/* STATUS */
+
+.active-status {
+    color: red;
+    font-weight: bold;
+}
+
+.resolved-status {
+    color: green;
+    font-weight: bold;
+}
+
+.resolve {
+    color: green;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.delete {
+    color: red;
+}
+
+
+/* FORM */
+
+.form-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+.form-container label {
+    font-weight: bold;
+}
+
+.form-container textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.danger-button {
+    background: #d00000;
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+}
+
+
+/* ADMIN */
+
+.admin-contact {
+    background: #fff3f3;
+    padding: 25px;
+    border-radius: 10px;
+    border-left: 6px solid red;
+}
+
+
+/* CALL PAGE */
+
+.call-page {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff1f1;
+}
+
+.call-box {
+    width: 450px;
+    max-width: 90%;
+    background: white;
+    padding: 40px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+}
+
+.call-box h1 {
+    color: #d00000;
+}
+
+.call-button {
+    display: inline-block;
+    background: green;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.back-button {
+    color: #b30000;
+    text-decoration: none;
+    font-weight: bold;
+}
