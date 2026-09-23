@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Emergency Contact</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>📞 Emergency Contact</h2>
+
+    <a href="/dashboard">
+        Dashboard
+    </a>
+
+</div>
+
+
+<div class="form-container">
+
+    <h1>👨‍💼 Fire Emergency Admin</h1>
+
+    <div class="admin-contact">
+
+        <h2>Admin</h2>
+
+        <p>
+            Mobile:
+            <strong>{{ admin_phone }}</strong>
+        </p>
+
+        <a
+            class="call-button"
+            href="tel:{{ admin_phone }}"
+        >
+            📞 Call Admin
+        </a>
+
+    </div>
+
+</div>
+
+
+<div class="form-container">
+
+    <h2>Add Emergency Contact</h2>
+
+    <form method="POST">
+
+        <label>Name</label>
+
+        <input
+            type="text"
+            name="name"
+            placeholder="Contact Name"
+            required
+        >
+
+        <label>Phone Number</label>
+
+        <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number"
+            required
+        >
+
+        <button type="submit">
+            Add Contact
+        </button>
+
+    </form>
+
+</div>
+
+
+<div class="container">
+
+    <h2>Saved Contacts</h2>
+
+    <table>
+
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Action</th>
+        </tr>
+
+        {% for contact in contacts %}
+
+        <tr>
+
+            <td>{{ contact["name"] }}</td>
+
+            <td>{{ contact["phone"] }}</td>
+
+            <td>
+
+                <a
+                    class="delete"
+                    href="/delete_contact/{{ contact['id'] }}"
+                >
+                    Delete
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+</html>
