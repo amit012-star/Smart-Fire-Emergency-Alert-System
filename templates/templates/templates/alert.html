@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Report Fire Emergency</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>🔥 Fire Emergency Alert</h2>
+
+    <a href="/dashboard">
+        Dashboard
+    </a>
+
+</div>
+
+
+<div class="form-container">
+
+    <h1>🚨 Report Fire Emergency</h1>
+
+    <form method="POST">
+
+        <label>
+            Fire Location
+        </label>
+
+        <input
+            type="text"
+            name="location"
+            placeholder="Example: Computer Lab"
+            required
+        >
+
+
+        <label>
+            Google Maps Link
+        </label>
+
+        <input
+            type="url"
+            name="map_link"
+            placeholder="https://maps.google.com/..."
+        >
+
+
+        <label>
+            Description
+        </label>
+
+        <textarea
+            name="description"
+            placeholder="🔥 Fire emergency detected! Immediate attention is required."
+        ></textarea>
+
+
+        <button
+            class="danger-button"
+            type="submit"
+        >
+            🚨 Report Fire Emergency
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>
